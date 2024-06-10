@@ -8,19 +8,9 @@ def hello():
     return 'Welcome to online excursions shop. Choose what you are interested in.'
 
 
-@app.route('/index/')
-def index():
-    return render_template('index.html')
-
-
 @app.route('/excursions/')
 def excursions():
     return render_template('excursions.html')
-
-
-@app.route('/diving/')
-def diving():
-    return render_template('diving.html')
 
 
 @app.route('/daily_diving/')
