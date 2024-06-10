@@ -31,5 +31,14 @@ def excursions():
     return render_template('excursions.html', excursions=excursions)
 
 
+@app.route('/daily/')
+def daily():
+    daily= [
+        {"title":"Daily diving", "price":"45$ p.p.", "img":"/static/images/2.png",
+         "description":"Full day trip. Starts from 08.00 a.m. and finished at 03.30 p.m. 2 diving on different coral reefs. Transfer from hotel and back, diving equipment, lunch on the boat, soft drinks during trip are included"}
+            ]
+    return render_template('daily.html', daily=daily)
+
+
 if __name__=='__main__':
     app.run()
