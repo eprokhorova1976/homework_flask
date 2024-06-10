@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} OH.TOURS {% endblock %}</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<nav class="navbar sticky-top bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/index/"><img src="/static/images/logo.png" width="50" height="50"> OH.TOURS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Excursions
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/diving/">Diving</a></li>
+            <li><a class="dropdown-item" href="#">Snorkeling</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Historical</a></li>
+            <li><a class="dropdown-item" href="#">Safari</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact us</a>
+        </li>
+
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+      </ul>
+
+
+
+  </div>
+  </div>
+</nav>
+
+{% block content %} {% endblock %}
+
+<footer class="footer p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>OH.TOURS</h2>
+                </div>
+                <div class="col-md-3">
+                    <h5>About Us</h5>
+                    <p>
+                        OH.TOURS is a small excursion bureau based in Hurghada. With us you can go on individual and
+                         group excursions all over Egypt/ You can dive to the coral reefs of the Red Sea, explore the
+                         vast desert and ancient temples.<br>
+                        Book excursions directly on the website and be sure of your most amazing vacation in Egypt.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>Email: info@oh.tours</li>
+                        <li>Phone: +49 1521 85 85 152</li>
+                        <li>Address: New Marina, Hurghada, Egypt</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline footer-links">
+                        <li class="list-inline-item">
+                          <a href="https://facebook.com" target="blank">
+                                <i class="fa fa-facebook"></i>
+                          </a>
+                          </li>
+
+                        <li class="list-inline-item">
+                          <a href="https://instagram.com" target="blank">
+                                <i class="fa fa-instagram"></i>
+                          </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>© 2024 OH.TOURS. All rights reserved.</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
