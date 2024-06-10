@@ -1,43 +1,25 @@
 {% extends 'base.html' %}
 {% block title %} <title>{{super}}-Excursions</title> {% endblock title %}
 
-{% for item in exc %}
-<div class="container text-center">
-  <div class="row align-items-start">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="/static/images/2.png" class="card-img-top" alt="...">
+{% block content %}
+
+<h1>Diving excursions:</h1>
+<div class="card-group">
+  {% for item in excursions %}
+<div class="card" style="width: 18rem;">
+  <img src="{{ item.img }}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{ item.title }}</h5>
-    <p class="card-subtitle">{{ item.price }}</p>
-    <p class="card-text">{{ item.description }}</p>
-    <a href="/daily/" class="btn btn-primary">See more. I like it!</a>
+    <h5 class="card-title"> {{ item.title }} </h5>
+    <p class="card-subtitle"> {{ item.price }} </p>
+    <p class="card-text"> {{ item.description }} </p>
+    <a href="{{ item.address }}" class="btn btn-primary">I like it! Want to know more</a>
   </div>
 </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="/static/images/3.png" class="card-img-top" alt="...">
-  <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-    <p class="card-subtitle">{{ item.price }}</p>
-    <p class="card-text">{{ item.description }}</p>
-    <a href="#" class="btn btn-primary">See more. I like it!</a>
-  </div>
-</div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-  <img src="/static/images/42.png" class="card-img-top" alt="...">
-  <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-    <p class="card-subtitle">{{ item.price }}</p>
-    <p class="card-text">{{ item.description }}</p>
-    <a href="#" class="btn btn-primary">See more. I like it!</a>
-  </div>
-</div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
-{% endfor %}
+
+
+
+
+{% endblock %}
