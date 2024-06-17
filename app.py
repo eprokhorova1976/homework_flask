@@ -1,7 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from models import db, User
+from forms import RegisterForm
+from flask_wtf.csrf import CSRFProtect
+
 
 app = Flask(__name__)
 app.secret_key='e98ecfcbcac9988e748e82151c28086b8dc77da939a829bd0a15ef4b75a265d7'
+app.config ['SQLALCHEMY_DATABASE_URI']='sqlite:///users.db'
+db.init_app(app)
+csrf = CSRFProtect(app)
+
 
 @app.route('/')
 def index():
@@ -49,6 +57,32 @@ def logout():
     return redirect(url_for('index'))
 
 
+@app.route ('/register/', methods = ['GET', 'POST'])
+def register():
+    form=RegisterForm()
+    if request.method=='POST' and form.validate():
+        username=form.username.data
+        surname=form.surname.data
+        email=form.email.data
+        password=form.password.data
+        exiting_user=User.query.filter(User.email==email).first()
+        if exiting_user:
+            error_msg="Email is already exists."
+            form.username.errors.append(error_msg)
+            return render_template('register.html', form=form)
+        new_user=User(username=username, surname=surname, email=email, password=password)
+        new_user.set_password(password)
+        db.session.add(new_user)
+        db.session.commit()
+        success_msg="Registartion is successful"
+        return success_msg
+    else:
+        return render_template('register.html', form=form)
+
+@app.cli.command('init_db')
+def init_db():
+    db.create_all():
+    print('OK')
 
 
 
