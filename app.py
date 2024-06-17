@@ -65,11 +65,6 @@ def register():
         surname=form.surname.data
         email=form.email.data
         password=form.password.data
-        exiting_user=User.query.filter(User.email==email).first()
-        if exiting_user:
-            error_msg="Email is already exists."
-            form.username.errors.append(error_msg)
-            return render_template('register.html', form=form)
         new_user=User(username=username, surname=surname, email=email, password=password)
         new_user.set_password(password)
         db.session.add(new_user)
@@ -81,7 +76,7 @@ def register():
 
 @app.cli.command('init_db')
 def init_db():
-    db.create_all():
+    db.create_all()
     print('OK')
 
 
