@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from models import db, User
-from forms import RegisterForm
+from forms import RegistrationForm
 from flask_wtf.csrf import CSRFProtect
 
 
@@ -59,7 +59,7 @@ def logout():
 
 @app.route ('/register/', methods = ['GET', 'POST'])
 def register():
-    form=RegisterForm()
+    form=RegistrationForm()
     if request.method=='POST' and form.validate():
         username=form.username.data
         surname=form.surname.data
